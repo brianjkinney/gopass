@@ -86,7 +86,7 @@ func (t *File) tryUnmount(ctx context.Context) error {
 	}
 
 	// unmount ramdisk
-	cmd := exec.CommandContext(ctx, "diskutil", "unmountDisk", t.dev)
+	cmd := exec.CommandContext(ctx, "umount", t.dev)
 	cmd.Stderr = os.Stderr
 	if debug.IsEnabled() {
 		cmd.Stdout = os.Stdout
